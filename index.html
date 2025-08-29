@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-left: 45px;">
+            ¡Bienvenidos Juniors Aventureros!
+        </h1>
+        <div class="sprite-wrapper">
+            <div class="book">
+                <!--  Carousel container -->
+                <div class="carousel" style="--slides: 4;">
+                    <!--  Bg sprite -->
+                    <div class="sprite"></div>
+                    <!--  Carousel items -->
+                    <div class="carousel-item">
+                        <div class="page-container">
+                            <div class="page left-page">
+                                <div>
+                                    <p style="margin: 0; text-indent: 1rem">
+                                        Si estás leyendo este antiguo libro, es porque te has emprendido en la gran
+                                        aventura de la programación.
+                                        </br> Deberás cumplir 4 desafíos para convertirte siquiera en aprendiz de esta
+                                        disciplina.
+                                        Se pondrán a prueba tu ingenio y audacia ¿Estás list@?
+                                    </p>
+                                    <img src="https://assets.codepen.io/36869/brilliant.gif" alt="" style="width: 100%">
+                                </div>
+                            </div>
+                            <div class="page right-page">
+                                <div>
+                                    <p style="margin: 0; text-indent: 1rem">
+                                        🚀 Los Fundamentos
+                                    </p>
+                                    <p style="margin: 0; text-indent: 1rem">
+                                        Comencemos con las bases...<br>
+                                        La programación estructurada se basa en tres componentes principales:
+                                    <ul>
+                                        <li><span style="color: black; text-transform:c ;">Secuencia</span>: las
+                                            instrucciones se ejecutan una tras otra, en orden.
+                                        </li>
+                                        <li><span style="color: black;">Decisión</span>: el programa puede tomar
+                                            distintos caminos según condiciones (if, else).
+                                        </li>
+                                        <li><span style="color: black;">Repetición (ciclo)</span>: se ejecuta un bloque
+                                            de instrucciones varias veces (while, for).
+                                        </li>
+                                    </ul>
+                                    Además, se usan variables para almacenar datos y constantes para valores que no
+                                    cambian.
+
+                                    </p><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="page-container">
+                            <div class="page left-page">
+                                <div>
+                                    <h3>Quiz: Fundamentos</h3>
+
+                                    <div id="quiz-container">
+                                        <!-- Pregunta 1 -->
+                                        <div class="quiz-question">
+                                            <p><b>1.</b> ¿Cuál de estos representa la <b>secuencia</b> en programación?
+                                            </p>
+                                            <button class="quiz-btn" onclick="checkQuizAnswer(this, true)">Ejecutar
+                                                instrucciones una tras otra</button>
+                                            <button class="quiz-btn" onclick="checkQuizAnswer(this, false)">Repetir un
+                                                bloque varias veces</button>
+                                            <button class="quiz-btn" onclick="checkQuizAnswer(this, false)">Tomar
+                                                decisiones según condiciones</button>
+                                        </div>
+
+                                        <!-- Pregunta 2 -->
+                                        <div class="quiz-question" style="display:none;">
+                                            <p><b>2.</b> ¿Qué estructura usamos para tomar decisiones bajo una
+                                                condición?</p>
+                                            <button class="quiz-btn" onclick="checkQuizAnswer(this, false)">for</button>
+                                            <button class="quiz-btn" onclick="checkQuizAnswer(this, true)">if /
+                                                else</button>
+                                            <button class="quiz-btn"
+                                                onclick="checkQuizAnswer(this, false)">while</button>
+                                        </div>
+
+                                        <!-- Pregunta 3 -->
+                                        <div class="quiz-question" style="display:none;">
+                                            <p><b>3.</b> ¿Cuál permite repetir instrucciones varias veces?</p>
+                                            <button class="quiz-btn" onclick="checkQuizAnswer(this, false)">if</button>
+                                            <button class="quiz-btn" onclick="checkQuizAnswer(this, false)">&&</button>
+                                            <button class="quiz-btn" onclick="checkQuizAnswer(this, true)">while /
+                                                for</button>
+                                        </div>
+                                    </div>
+
+                                    <p id="quiz-feedback" style="margin-top:10px; font-weight:bold;"></p>
+                                    <p id="quiz-score" style="margin-top:10px; font-weight:bold;">Puntaje: 0</p>
+                                </div>
+                            </div>
+
+                            <div class="page right-page">
+                                <div>
+                                    <h3>Quiz: Pseudocódigo</h3>
+                                    <p style="margin: 0; text-indent: 1rem">Un programa se construye paso a paso, como
+                                        una receta🍳.
+                                        <br>Tu siguiente desafío es ordenar la siguiente secuencia de pasos para crear
+                                        una pócima adictiva llamada: Mate🧉
+                                    </p>
+                                    <ol>
+                                        <li>Colocar la bombilla</li>
+                                        <li>Formar una montañita de yerba</li>
+                                        <li>Agregar agua caliente</li>
+                                        <li>Calentar agua</li>
+                                        <li>Poner yerba en el mate</li>
+                                    </ol>
+                                    <input type="text" id="respuesta1" placeholder="Ejemplo: 3,4,1,2,5"
+                                        style="width: 100%; padding: 0.5rem; margin: 0.5rem 0; border-radius: 5px; border: 1px solid #aaa;">
+                                    <button onclick="verificarSecuencia()"
+                                        style="padding: 0.5rem 1rem; border: none; background: #444; color: #fff; border-radius: 5px; cursor: pointer;">
+                                        Comprobar
+                                    </button>
+
+                                    <p id="feedback1" style="margin-top: 0.5rem; font-weight: bold;"></p>
+                                </div>
+                                <script>
+                                    function verificarSecuencia() {
+                                        const correcta = "4,5,2,1,3"; // orden correcto
+                                        const respuesta = document.getElementById("respuesta1").value.replace(/\s/g, "");
+                                        const feedback = document.getElementById("feedback1");
+
+                                        if (respuesta === correcta) {
+                                            feedback.style.color = "green";
+                                            feedback.textContent = "✅ ¡Muy bien! Has entendido cómo funciona la secuencia.";
+                                        } else {
+                                            feedback.style.color = "red";
+                                            feedback.textContent = "❌ Revisa el orden, recuerda separar los números con coma. Pista: primero necesitamos el agua...";
+                                        }
+                                    }
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="page-container">
+                            <div class="page left-page">
+                                <h3 style="margin: 0; color: #444;">🧩 Quiz: Decisiones</h3>
+                                <p style="margin: 0.5rem 0; text-indent: 1rem;">
+                                    Los programas pueden tomar decisiones. Por ejemplo:
+                                    <i>Si tienes 18 años o más, puedes votar. Si no, aún no.</i>
+                                    Completa el siguiente código en Python con las palabras clave que faltan.
+                                </p>
+
+                                <div style="background: rgb(241, 232, 204);
+                border-radius: 10px; font-family: monospace; white-space: pre-wrap;"> edad = int(input("Ingresa tu edad: "))<br> <span style="color: red;">[__]</span> edad &gt;= 18:<br> <span
+                                        style="color: red;">    [___]</span>("Puedes votar")<br> <span
+
+                                        style="color: red;">[___]</span>:<br> <span
+                                        style="color: red;">    [___]</span>("Aún no puedes votar")
+                                </div>
+                                <p style="margin: 0.5rem 0;">Palabras a usar: <b>if, else, print</b></p>
+
+                                <input type="text" id="respuesta2" placeholder="Ejemplo: if, print, else, print"
+                                    style="width: 100%; padding: 0.5rem; margin: 0.5rem 0; border-radius: 5px; border: 1px solid #aaa;">
+                                <button onclick="verificarCondicional()"
+                                    style="padding: 0.5rem 1rem; border: none; background: #444; color: #fff; border-radius: 5px; cursor: pointer;">
+                                    Comprobar
+                                </button>
+
+                                <p id="feedback2" style="margin-top: 0.5rem; font-weight: bold;"></p>
+
+
+                                <script>
+                                    function verificarCondicional() {
+                                        const correcta = ["if", "print", "else", "print"];
+                                        const respuesta = document.getElementById("respuesta2").value
+                                            .replace(/\s/g, "")
+                                            .toLowerCase()
+                                            .split(",");
+                                        const feedback = document.getElementById("feedback2");
+
+                                        if (JSON.stringify(respuesta) === JSON.stringify(correcta)) {
+                                            feedback.style.color = "green";
+                                            feedback.textContent = "✅ ¡Excelente! Has completado el condicional correctamente.";
+                                        } else {
+                                            feedback.style.color = "red";
+                                            feedback.textContent = "❌ Revisa tus respuestas. Recuerda: primero va 'if', dentro va 'print', luego 'else'...";
+                                        }
+                                    }
+                                </script>
+                            </div>
+                            <div class="page right-page">
+
+   
+
+<h3 style="margin: 0; color: #444;">📘 Aprendiendo return en funciones</h3>
+<p style="margin: 0.5rem 0; text-indent: 1rem;">
+En JavaScript, <b>return</b> permite que una función devuelva un valor al lugar donde se llamó. Sin return, la función devuelve undefined.
+</p>
+
+<h4 style="margin: 0.5rem 0;">✅ Ejemplo correcto:</h4>
+<pre style="background:rgb(241, 232, 204); padding:10px; border-radius:5px; margin:0.5rem 0;">
+function suma(a, b) { 
+    return a + b;
+};
+console.log(suma(5, 3)); // 8
+</pre>
+
+<h4 style="margin: 0.5rem 0;">❌ Ejemplo incorrecto:</h4>
+<pre style="background:rgb(241, 232, 204); padding:10px; border-radius:5px; margin:0.5rem 0;">
+function suma(a, b) { 
+    a + b;
+ };
+console.log(suma(5, 3)); // undefined
+</pre>
+
+
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="page-container">
+                            <div class="page left-page">
+                             <div>
+                                    <h3>Ejercicio 1: Suma de números</h3>
+                                    <p>Escribe una función llamada <b>suma(a, b)</b> que retorne la suma de dos números.
+                                    </p>
+                                    <textarea style="color: green; height: 74px; width: 260px;" id="code-editor">function suma(a, b){ // Escribe tu solución aquí
+};</textarea>
+
+                                    <p>Prueba tu función:</p>
+                                    <input type="number" id="num1" placeholder="Número 1">
+                                    <input type="number" id="num2" placeholder="Número 2">
+                                    <button style="margin-right: 20px;" onclick="runCode()">Ejecutar</button>
+                                    <button onclick="checkExercise()"
+                                        style="background:#007bff; color:white;">Comprobar</button>
+
+                                    <p id="feedback" ></p>
+                                    <h4>Resultado:</h4>
+                                    <iframe style="height:40px;"id="output-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+                                </div>
+
+                                <script>
+                                 
+                                    function checkExercise() {
+                                        const userCode = document.getElementById("code-editor").value;
+                                        const feedback = document.getElementById("feedback");
+
+                                        try {
+                                            // Limpiar cualquier definición previa
+                                            delete window.suma;
+                                            eval(userCode);
+
+                                            if (typeof suma === "function" && suma(2, 3) === 5 && suma(-1, 1) === 0) {
+                                                feedback.style.color = "green";
+                                                feedback.textContent = "¡Correcto! La función suma funciona bien ✅";
+                                            } else {
+                                                feedback.style.color = "red";
+                                                feedback.textContent = "❌ La función no devuelve el resultado correcto. Intenta otra vez.";
+                                            }
+                                        } catch (error) {
+                                            feedback.style.color = "red";
+                                            feedback.textContent = "❌ Error en el código: " + error.message;
+                                        }
+                                    }
+                                </script>
+</div>
+                            <div class="page right-page">
+                                <div>
+
+                                    <img src="https://assets.codepen.io/36869/pixel-cat.jpg" width="100%" height="230px" alt="">
+                                    <h3>Has llegado al final de este antiguo libro, valiente aprendiz.</h3>
+                                    <h2>¡Muchas gracias por participar! 😺</h2>
+                                    
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="Js/script.js"></script>
+</body>
+
+</html>
